@@ -1,0 +1,31 @@
+li a, .cta{
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    line-height: normal;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: normal;
+    color: var(--text-color);
+}
+.brandname{
+    font-size: 24px;
+    font-family: 'Syne', sans-serif;
+}
+.cta {
+  border-color: 1px solid var(--primary-orange, #ff9142);
+  color: var(--primary-orange, #ff9142);
+  transition: all 0.3s ease;
+}
+
+.cta:hover {
+  background-color: var(--primary-orange, #ff9142);
+  border-color: var(--primary-orange, #ff9142);
+  color: var(--text-color);
+}
+
+.cta:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 145, 66, 0.25);
+}
+.nav-link.active {
+  color: var(--primary-orange, #ff9142) !important;
+}

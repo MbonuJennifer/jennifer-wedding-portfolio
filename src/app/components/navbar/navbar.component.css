@@ -29,3 +29,10 @@ li a, .cta{
 .nav-link.active {
   color: var(--primary-orange, #ff9142) !important;
 }
+.navBar{
+  transition: all 0.5s;
+}
+.navbar-scrolled{
+  background-color: var(--bg-color) !important;
+  border-bottom: 1px solid var(--primary-orange) !important;
+}

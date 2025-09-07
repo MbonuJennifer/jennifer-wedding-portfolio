@@ -1,0 +1,13 @@
+.about-text{
+    font-size: 18px;
+    line-height: 27.72px;
+    font-weight: 400;
+    letter-spacing: normal;
+    color: var(--text-color);
+    text-align: justify !important;
+}
+.avatar {
+  border: 3px solid var(--primary-orange);
+  height: 70%;
+  width: 70%;
+}

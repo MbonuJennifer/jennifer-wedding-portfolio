@@ -1,0 +1,18 @@
+#cta {
+  position: relative;     
+   padding: 100px 15px;    
+  z-index: 1;
+}
+
+#cta .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #ff9142 0%, #ffb871 100%);
+  opacity: 0.1;
+  z-index: 0;
+}
+
+#cta .contain {
+  position: relative;
+  z-index: 1;  
+}         

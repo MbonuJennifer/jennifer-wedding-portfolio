@@ -1,0 +1,33 @@
+/* Card styling */
+.contact-card {
+  background-color: var(--secondary-gray);
+  color: var(--text-color);
+  border-radius: 1rem;
+}
+
+/* Success Alert */
+.alert-success-custom {
+  background-color: var(--primary-orange);
+  color: var(--bg-color);
+  font-weight: 600;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  border: none;
+}
+
+/* Invalid fields */
+.is-invalid {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.invalid-feedback {
+  color: #ff6b6b;
+  font-size: 0.875rem;
+}
+
+/* Form labels */
+.form-label {
+  color: #fff;
+  font-weight: 600;
+}

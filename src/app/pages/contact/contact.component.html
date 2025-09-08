@@ -1,1 +1,147 @@
-<p>contact works!</p>
+<section id="contact" class="py-5 my-5">
+  <div class="container">
+    <h2 class="text-center mb-4 main-heading">Contact Me</h2>
+
+    <!-- Success Alert -->
+    <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show text-center mb-4" role="alert">
+      <i class="bi bi-check-circle-fill me-2"></i>
+      {{ successMessage }}
+      <button type="button" class="btn-close" (click)="clearForm()" aria-label="Close"></button>
+    </div>
+
+    <div class="card contact-card shadow-lg border-0 mx-auto" style="max-width: 700px;">
+      <div class="card-body p-4 p-md-5">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+          
+          <!-- Name & Email Row -->
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="name" class="form-label">Your Name <span class="text-danger">*</span></label>
+              <input 
+                type="text" 
+                id="name" 
+                formControlName="name" 
+                class="form-control" 
+                [class.is-invalid]="hasError('name')"
+                [class.is-valid]="formControls.name.valid && formControls.name.touched"
+                placeholder="Enter your full name"
+                aria-describedby="nameHelp" />
+              <div id="nameHelp" class="form-text">Your full name as you'd like it to appear</div>
+              <div *ngIf="hasError('name')" class="invalid-feedback">
+                {{ getErrorMessage('name') }}
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+              <input 
+                type="email" 
+                id="email" 
+                formControlName="email" 
+                class="form-control" 
+                [class.is-invalid]="hasError('email')"
+                [class.is-valid]="formControls.email.valid && formControls.email.touched"
+                placeholder="your.email@example.com"
+                aria-describedby="emailHelp" />
+              <div id="emailHelp" class="form-text">I'll never share your email with anyone else</div>
+              <div *ngIf="hasError('email')" class="invalid-feedback">
+                {{ getErrorMessage('email') }}
+              </div>
+            </div>
+          </div>
+
+          <!-- Event Type -->
+          <div class="mt-4">
+            <label for="eventType" class="form-label">Event Type <span class="text-danger">*</span></label>
+            <select 
+              id="eventType" 
+              formControlName="eventType" 
+              class="form-select" 
+              [class.is-invalid]="hasError('eventType')"
+              [class.is-valid]="formControls.eventType.valid && formControls.eventType.touched"
+              aria-describedby="eventTypeHelp">
+              <option value="" disabled selected>Select your event type</option>
+              <option value="wedding">Wedding</option>
+              <option value="anniversary">Anniversary</option>
+              <option value="vow-renewal">Vow Renewal</option>
+              <option value="proposal">Proposal</option>
+              <option value="other">Other Celebration</option>
+            </select>
+            <div id="eventTypeHelp" class="form-text">What type of event are you planning?</div>
+            <div *ngIf="hasError('eventType')" class="invalid-feedback">
+              {{ getErrorMessage('eventType') }}
+            </div>
+          </div>
+
+          <!-- Event Date -->
+          <div class="mt-4">
+            <label for="date" class="form-label">Event Date <span class="text-danger">*</span></label>
+            <input 
+              type="date" 
+              id="date" 
+              formControlName="date" 
+              class="form-control"
+              [class.is-invalid]="hasError('date')"
+              [class.is-valid]="formControls.date.valid && formControls.date.touched"
+              aria-describedby="dateHelp" />
+            <div id="dateHelp" class="form-text">When is your event happening?</div>
+            <div *ngIf="hasError('date')" class="invalid-feedback">
+              {{ getErrorMessage('date') }}
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div class="mt-4">
+            <label for="message" class="form-label">Your Message <span class="text-danger">*</span></label>
+            <textarea 
+              id="message" 
+              rows="5" 
+              formControlName="message" 
+              class="form-control" 
+              [class.is-invalid]="hasError('message')"
+              [class.is-valid]="formControls.message.valid && formControls.message.touched"
+              placeholder="Tell me about your event, your vision, and any specific requirements..."
+              aria-describedby="messageHelp"></textarea>
+            <div id="messageHelp" class="form-text">Minimum 10 characters required. Share as many details as you'd like!</div>
+            <div *ngIf="hasError('message')" class="invalid-feedback">
+              {{ getErrorMessage('message') }}
+            </div>
+          </div>
+          <div class="text-center mt-5">
+            <button 
+              type="submit" 
+              class="btn btn-primary-custom btn-lg px-5 py-3"
+              [disabled]="isLoading"
+              aria-label="Send message">
+              <span *ngIf="!isLoading">
+                <i class="bi bi-send-fill me-2"></i>Send Message
+              </span>
+              <span *ngIf="isLoading">
+                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                Sending...
+              </span>
+            </button>
+            
+            <button 
+              type="button" 
+              class="btn btn-outline-secondary btn-lg px-5 py-3 ms-3"
+              (click)="clearForm()"
+              [disabled]="isLoading"
+              aria-label="Clear form">
+              <i class="bi bi-x-circle-fill me-2"></i>Clear Form
+            </button>
+          </div>
+          <div *ngIf="submitted && contactForm.invalid" class="alert alert-warning mt-4" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            <small>Please fix the errors above before submitting.</small>
+          </div>
+          <div class="mt-3 text-center">
+            <small class="text-muted">
+              <span class="text-danger">*</span> indicates required fields
+            </small>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

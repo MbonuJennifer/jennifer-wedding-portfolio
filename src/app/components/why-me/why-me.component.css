@@ -1,30 +1,37 @@
+/* Flip Card Container */
 .flip-card {
   perspective: 1000px;
+  display: grid;
+  cursor: pointer; /* indicates interactivity */
 }
 
 .flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  display: grid;
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
 
+/* Both sides stacked */
+.flip-card-front,
+.flip-card-back {
+  grid-area: 1 / 1;
+  backface-visibility: hidden;
+}
+
+/* Back initially hidden */
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Hover effect (desktop) */
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
 
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  top: 0;
-  left: 0;
-}
-
-.flip-card-back {
+/* Flipped state (mobile toggle) */
+.flip-card.flipped .flip-card-inner {
   transform: rotateY(180deg);
+}
+.bg-custom{
+    background-color: var(--primary-orange);
 }

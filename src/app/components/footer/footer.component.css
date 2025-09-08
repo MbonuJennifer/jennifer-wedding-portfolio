@@ -7,7 +7,7 @@
 }
 .footer-email{
     font-family: 'Syne', sans-serif;
-    font-size: 64px;
+    font-size: 36px;
     line-height: normal;
     font-weight: bold;
     letter-spacing: normal;
@@ -27,4 +27,11 @@
     font-weight: bold;
     letter-spacing: normal;
     color: var(--text-color);
+}
+.hover-orange {
+  transition: color 0.3s ease;
+}
+
+.hover-orange:hover {
+  color: var(--primary-orange)
 }
